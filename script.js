@@ -7,102 +7,52 @@ let sDisp = document.getElementById("subDisplay")
 
 btns.forEach(Element => {
   Element.addEventListener('click', event =>{
-    id = event.target.id
+    id = event.target.id;
+    let clas = event.target.classList
+
+                document.getElementById("plus").classList.remove("is-active")
+                document.getElementById("minus").classList.remove("is-active")
+                document.getElementById("times").classList.remove("is-active")
+                document.getElementById("divide").classList.remove("is-active")
+
        let nums = document.getElementById(id).innerHTML
+        if(id.length > 3 && id != 'equal'){
+          operator = id
+                oldNum = currNum
+                sDisp.innerHTML = oldNum
+                mDisp.innerHTML = ''
+                currNum = ''
+                if(mDisp.innerHTML || sDisp.innerHTML){
+                  document.getElementById(id).classList.add("is-active")
+                }
+        }
           switch(id){
 
-            case "plus": 
-                operator = "plus"
-                oldNum = currNum
-                sDisp.innerHTML = oldNum
-                mDisp.innerHTML = ''
-                currNum = ''
-                document.getElementById("plus").classList.add("is-active")
-                document.getElementById("minus").classList.remove("is-active")
-                document.getElementById("times").classList.remove("is-active")
-                document.getElementById("divide").classList.remove("is-active")
-              break;
-
-            case "minus": 
-                operator = "minus"
-                oldNum = currNum
-                sDisp.innerHTML = oldNum
-                mDisp.innerHTML = ''
-                currNum = ''
-                document.getElementById("plus").classList.remove("is-active")
-                document.getElementById("minus").classList.add("is-active")
-                document.getElementById("times").classList.remove("is-active")
-                document.getElementById("divide").classList.remove("is-active")
-              break;
-
-              case "times": 
-                operator = "times"
-                oldNum = currNum
-                sDisp.innerHTML = oldNum
-                mDisp.innerHTML = ''
-                currNum = ''
-                document.getElementById("plus").classList.remove("is-active")
-                document.getElementById("minus").classList.remove("is-active")
-                document.getElementById("times").classList.add("is-active")
-                document.getElementById("divide").classList.remove("is-active")
-              break;
-
-              case "divide": 
-                operator = "divide"
-                oldNum = currNum
-                sDisp.innerHTML = oldNum
-                mDisp.innerHTML = ''
-                currNum = ''
-                document.getElementById("plus").classList.remove("is-active")
-                document.getElementById("minus").classList.remove("is-active")
-                document.getElementById("times").classList.remove("is-active")
-                document.getElementById("divide").classList.add("is-active")
-              break;
-
             case "equal":
-              document.getElementById("plus").classList.remove("is-active")
-              document.getElementById("minus").classList.remove("is-active")
-              document.getElementById("times").classList.remove("is-active")
-              document.getElementById("divide").classList.remove("is-active")
               if(mDisp.innerHTML && sDisp.innerHTML){
+                currNum = parseFloat(currNum)
+                    oldNum = parseFloat(oldNum)
+                    
               if(operator){
                   switch(operator){
-                    case "plus": 
-                    currNum = parseFloat(currNum)
-                    oldNum = parseFloat(oldNum)
-                      ans = currNum+oldNum
-                        mDisp.innerHTML=ans
-                        sDisp.innerHTML=''
-                        currNum = ans
+                    
+                    case "plus": ans = currNum+oldNum
                         break;
                         
-                    case "minus":
-                      currNum = parseFloat(currNum)
-                    oldNum = parseFloat(oldNum)
-                      ans = oldNum-currNum
-                        mDisp.innerHTML=ans
-                        sDisp.innerHTML=''
-                        currNum = ans
+                    case "minus": ans = oldNum-currNum
                         break;
 
-                        case "times": 
-                        currNum = parseFloat(currNum)
-                        oldNum = parseFloat(oldNum)
-                          ans = currNum*oldNum
-                            mDisp.innerHTML=ans
-                            sDisp.innerHTML=''
-                            currNum = ans
+                        case "times": ans = currNum*oldNum
                             break;
                             
-                        case "divide":
-                          currNum = parseFloat(currNum)
-                        oldNum = parseFloat(oldNum)
-                          ans = oldNum/currNum
-                            mDisp.innerHTML=ans
-                            sDisp.innerHTML=''
-                            currNum = ans
+                        case "divide": ans = oldNum/currNum
                             break;
                     }
+                    
+                    mDisp.innerHTML=ans
+                      sDisp.innerHTML=''
+                        currNum = ans
+
                   }
                 }
               break;
@@ -113,15 +63,10 @@ btns.forEach(Element => {
              mDisp.innerHTML = ''
              sDisp.innerHTML = ''
              operator = ''
-             document.getElementById("plus").classList.remove("is-active")
-                document.getElementById("minus").classList.remove("is-active")
-                document.getElementById("times").classList.remove("is-active")
-                document.getElementById("divide").classList.remove("is-active")
               break;
-
-            default: 
-             mDisp.innerHTML = currNum+=nums
-             
           }
+          if(clas == "num"){
+            mDisp.innerHTML = currNum+=nums
+          }   
   });
 });
