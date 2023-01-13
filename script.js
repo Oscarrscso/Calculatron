@@ -1,66 +1,77 @@
+let btns = document.querySelectorAll("button")
+let currNum = ''
+let oldNum = ''
+let operator = ''
+let mDisp = document.getElementById("mainDisplay")
+let sDisp = document.getElementById("subDisplay")
 
-var arr = []
-const display = document.getElementById("display")
-let stor1 = ''
-let checker = true
-operator = ''
+btns.forEach(Element => {
+  Element.addEventListener('click', event =>{
+    id = event.target.id
+       let nums = document.getElementById(id).innerHTML
+          switch(id){
 
-const calc = (num) => {
-  num = parseInt(num)
-    if(checker){
-      arr.push(num)
-      display.innerHTML = arr.join('')
-    } else {
-      arr = []
-      arr.push(stor1)
-      arr.push(num)
-      display.innerHTML = arr.join('')
-      checker = true
-    }
-}
+            case "plus": 
+                operator = "plus"
+                oldNum = currNum
+                sDisp.innerHTML = oldNum
+                mDisp.innerHTML = ''
+                currNum = ''
+                document.getElementById("plus").classList.add("is-active")
+                document.getElementById("minus").classList.remove("is-active")
+              break;
 
-const AC = () => {
-  display.innerHTML = ''
-  arr = []
-  stor1 = ''
-  checker = true
-}
+            case "minus": 
+                operator = "minus"
+                oldNum = currNum
+                sDisp.innerHTML = oldNum
+                mDisp.innerHTML = ''
+                currNum = ''
+                document.getElementById("minus").classList.add("is-active")
+                document.getElementById("plus").classList.remove("is-active")
+              break;
 
-const add = () =>{
-  let stora = arr.join("").toString()
-  stora = parseInt(stora)
-  display.innerHTML = ''
-  arr = []
-  operator = 1
-  if(checker){
-    stor1 = stora
-  }
-}
+            case "equal":
+             document.getElementById("minus").classList.remove("is-active")
+             document.getElementById("plus").classList.remove("is-active")
+              if(mDisp.innerHTML && sDisp.innerHTML){
+              if(operator){
+                  switch(operator){
+                    case "plus": 
+                    currNum = parseFloat(currNum)
+                    oldNum = parseFloat(oldNum)
+                      ans = currNum+oldNum
+                        mDisp.innerHTML=ans
+                        sDisp.innerHTML=''
+                        currNum = ans
+                        break;
+                        
+                    case "minus":
+                      currNum = parseFloat(currNum)
+                    oldNum = parseFloat(oldNum)
+                      ans = oldNum-currNum
+                        mDisp.innerHTML=ans
+                        sDisp.innerHTML=''
+                        currNum = ans
+                        break;
+                    }
+                  }
+                }
+              break;
 
-const minus = () =>{
-  let storm = arr.join("").toString()
-  storm = parseInt(storm)
-  display.innerHTML = ''
-  arr = []
-  operator = 2
-  if(checker){
-    stor1 = storm
-  }
-}
+            case "C": 
+             currNum = ''
+             oldNum = ''
+             mDisp.innerHTML = ''
+             sDisp.innerHTML = ''
+             operator = ''
+             document.getElementById("minus").classList.remove("is-active")
+             document.getElementById("plus").classList.remove("is-active")
+              break;
 
-const equals = () =>{
-  let dispNum = parseInt(display.innerHTML)
-  let eq = ''
-  switch(operator){
-    case 1: eq = stor1 + dispNum
-    break;
-    case 2: eq = stor1 - dispNum
-  }
-  console.log(dispNum)
-  console.log(stor1)
-  console.log(eq)
-  display.innerHTML = eq
-  stor1 = eq
-  console.log(stor1)
-  checker = false
-}
+            default: 
+             mDisp.innerHTML = currNum+=nums
+             
+          }
+  });
+});

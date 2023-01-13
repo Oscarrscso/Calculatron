@@ -4,7 +4,7 @@ body {
     background-color: rgb(29, 29, 29);
 }
 
-.grid-item {
+.grid-item, .num {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 45px;
     font-weight: 200;
@@ -17,7 +17,7 @@ body {
     border-radius: 2px;
 }
 
-.grid-item:hover {
+.grid-item:hover, .num:hover{
     transition: ease-in-out 0.07s;
     background-color: rgb(94, 124, 130);
     border: solid rgb(119, 148, 156) 2px;
@@ -26,13 +26,13 @@ body {
     cursor: pointer;
 }
 
-.grid-item:active{
+.grid-item:active, .num:active, .is-active {
     transition: ease-in-out 0.01s;
-    background-color: rgb(85, 115, 121);
-    border: solid rgb(78, 101, 105) 1px;
+    background-color: rgb(74, 100, 105);
+    border: solid rgb(59, 77, 80) 1px;
     color: rgb(231, 231, 208);
-    transform: scale(0.985);
-    box-shadow: 0 0 4px rgb(63, 84, 88) inset;
+    transform: scale(0.98);
+    box-shadow: 0 0 4px rgb(55, 74, 78) inset;
 }
 
 .grid-container{
@@ -42,8 +42,8 @@ body {
     justify-content: center;
     align-content: center;
     grid-template-columns: auto auto auto auto;
-    padding: 24px 16px;
-    width: 320px;
+    padding: 24px;
+    width: 310px;
     height: 400px;
     border-radius: 17px;
     justify-self: center;
@@ -51,7 +51,7 @@ body {
     box-shadow: 0 0 90px rgb(21, 21, 21);
 }
 
-#equals {
+#equal {
     width: 162px;
     grid-column: span 2;
     background-color: rgb(203, 133, 86);
@@ -60,12 +60,12 @@ body {
     border-bottom-right-radius: 10px;
 }
 
-#equals:hover {
+#equal:hover {
     background-color: rgb(230, 151, 98);
     border: solid rgb(244, 190, 153) 2px;
 }
 
-#equals:active {
+#equal:active {
     background-color: rgb(188, 121, 77);
     border: solid rgb(156, 99, 61) 1px;
     box-shadow: 0 0 4px rgb(164, 105, 65) inset;
@@ -82,14 +82,20 @@ body {
     margin: 1px;
     width: 314;
     height: 80px;
-    line-height: 80px;
     border-radius: 10px 10px 2px 2px;
     box-shadow: 0 0 5px rgb(100, 100, 100) inset;
     text-align: right;
     padding-right: 8px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 200;
-    font-size: 40px;
+    font-weight: 300;
+    font-size: 33px;
         color: rgb(20, 20, 20);
     }
+
+#subDisplay{
+    font-size: 25px;
+    color: rgb(69, 69, 69);
+    font-weight: 300;
+}
+
 

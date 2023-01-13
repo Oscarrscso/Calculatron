@@ -12,22 +12,33 @@
   </head>
   <body>
         <div id="calculator" class="grid-container">
-            <div id="display"></div>
-            <button id="1" class="grid-item" onclick="calc(1)">1</button>
-            <button id="2" class="grid-item" onclick="calc(2)">2</button>
-            <button id="3" class="grid-item" onclick="calc(3)">3</button>
-            <button id="AC" class="grid-item" onclick="AC()">AC</button>
-            <button id="4" class="grid-item" onclick="calc(4)">4</button>
-            <button id="5" class="grid-item" onclick="calc(5)">5</button>
-            <button id="6" class="grid-item" onclick="calc(6)">6</button>
-            <button id="plus" class="grid-item" onclick="add()">+</button>
-            <button id="7" class="grid-item" onclick="calc(7)">7</button>
-            <button id="8" class="grid-item" onclick="calc(8)">8</button>
-            <button id="9" class="grid-item" onclick="calc(9)">9</button>
-            <button id="minus" class="grid-item" onclick="minus()">-</button>
-            <button id="zero" class="grid-item" onclick="calc(0)">0</button>
-            <button id="Dot" class="grid-item" onclick="dot()">.</button>
-            <button id="equals" class="grid-item" onclick="equals()">=</button>
+            <div id="display">
+              <span id="subDisplay"></span>
+              <br>
+              <span id="mainDisplay"></span>
+            </div>
+            <button id="7" class="num" class="grid-item">7</button>
+            <button id="8" class="num" class="grid-item">8</button>
+            <button id="9" class="num" class="grid-item">9</button>
+            
+            <button id="C" class="grid-item">C</button>
+
+            <button id="4" class="num" class="grid-item">4</button>
+            <button id="5" class="num" class="grid-item">5</button>
+            <button id="6" class="num" class="grid-item">6</button>
+
+            <button id="plus" class="grid-item" class="oper">+</button>
+
+            <button id="1" class="num" class="grid-item">1</button>
+            <button id="2" class="num" class="grid-item">2</button>
+            <button id="3" class="num" class="grid-item">3</button>
+            
+            <button id="minus" class="grid-item" class="oper">-</button>
+
+            <button id="zero" class="num" class="grid-item">0</button>
+            <button id="." class="num" class="grid-item">.</button>
+
+            <button id="equal" class="grid-item" class="oper">=</button>
         </div>
         </div>
   </body>
