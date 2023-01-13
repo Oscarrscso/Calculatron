@@ -19,6 +19,8 @@ btns.forEach(Element => {
                 currNum = ''
                 document.getElementById("plus").classList.add("is-active")
                 document.getElementById("minus").classList.remove("is-active")
+                document.getElementById("times").classList.remove("is-active")
+                document.getElementById("divide").classList.remove("is-active")
               break;
 
             case "minus": 
@@ -27,13 +29,41 @@ btns.forEach(Element => {
                 sDisp.innerHTML = oldNum
                 mDisp.innerHTML = ''
                 currNum = ''
-                document.getElementById("minus").classList.add("is-active")
                 document.getElementById("plus").classList.remove("is-active")
+                document.getElementById("minus").classList.add("is-active")
+                document.getElementById("times").classList.remove("is-active")
+                document.getElementById("divide").classList.remove("is-active")
+              break;
+
+              case "times": 
+                operator = "times"
+                oldNum = currNum
+                sDisp.innerHTML = oldNum
+                mDisp.innerHTML = ''
+                currNum = ''
+                document.getElementById("plus").classList.remove("is-active")
+                document.getElementById("minus").classList.remove("is-active")
+                document.getElementById("times").classList.add("is-active")
+                document.getElementById("divide").classList.remove("is-active")
+              break;
+
+              case "divide": 
+                operator = "divide"
+                oldNum = currNum
+                sDisp.innerHTML = oldNum
+                mDisp.innerHTML = ''
+                currNum = ''
+                document.getElementById("plus").classList.remove("is-active")
+                document.getElementById("minus").classList.remove("is-active")
+                document.getElementById("times").classList.remove("is-active")
+                document.getElementById("divide").classList.add("is-active")
               break;
 
             case "equal":
-             document.getElementById("minus").classList.remove("is-active")
-             document.getElementById("plus").classList.remove("is-active")
+              document.getElementById("plus").classList.remove("is-active")
+              document.getElementById("minus").classList.remove("is-active")
+              document.getElementById("times").classList.remove("is-active")
+              document.getElementById("divide").classList.remove("is-active")
               if(mDisp.innerHTML && sDisp.innerHTML){
               if(operator){
                   switch(operator){
@@ -54,6 +84,24 @@ btns.forEach(Element => {
                         sDisp.innerHTML=''
                         currNum = ans
                         break;
+
+                        case "times": 
+                        currNum = parseFloat(currNum)
+                        oldNum = parseFloat(oldNum)
+                          ans = currNum*oldNum
+                            mDisp.innerHTML=ans
+                            sDisp.innerHTML=''
+                            currNum = ans
+                            break;
+                            
+                        case "divide":
+                          currNum = parseFloat(currNum)
+                        oldNum = parseFloat(oldNum)
+                          ans = oldNum/currNum
+                            mDisp.innerHTML=ans
+                            sDisp.innerHTML=''
+                            currNum = ans
+                            break;
                     }
                   }
                 }
@@ -65,8 +113,10 @@ btns.forEach(Element => {
              mDisp.innerHTML = ''
              sDisp.innerHTML = ''
              operator = ''
-             document.getElementById("minus").classList.remove("is-active")
              document.getElementById("plus").classList.remove("is-active")
+                document.getElementById("minus").classList.remove("is-active")
+                document.getElementById("times").classList.remove("is-active")
+                document.getElementById("divide").classList.remove("is-active")
               break;
 
             default: 

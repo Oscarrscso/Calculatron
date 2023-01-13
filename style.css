@@ -22,7 +22,7 @@ body {
     background-color: rgb(94, 124, 130);
     border: solid rgb(119, 148, 156) 2px;
     color: rgb(230, 230, 203);
-    transform: scale(1.015);
+    transform: scale(1);
     cursor: pointer;
 }
 
@@ -44,16 +44,17 @@ body {
     grid-template-columns: auto auto auto auto;
     padding: 24px;
     width: 310px;
-    height: 400px;
+    height: 480px;
     border-radius: 17px;
     justify-self: center;
     align-self: center;
     box-shadow: 0 0 90px rgb(21, 21, 21);
+    overflow-wrap: break-word;
 }
 
 #equal {
-    width: 162px;
-    grid-column: span 2;
+    height: 326px;
+    grid-row: span 4;
     background-color: rgb(203, 133, 86);
     border: solid rgb(236, 176, 136) 2px;
     color: rgb(231, 231, 208);
@@ -70,6 +71,7 @@ body {
     border: solid rgb(156, 99, 61) 1px;
     box-shadow: 0 0 4px rgb(164, 105, 65) inset;
 }
+
 
 #zero{
     border-bottom-left-radius: 10px;
